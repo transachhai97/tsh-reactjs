@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '@/logo.svg';
+import images from '@/helpers/images';
 import Counter from '@/features/counter/Counter';
 import styles from '@/App.scss';
 
@@ -7,7 +7,7 @@ function App() {
     return (
         <div className={styles.app}>
             <header className={styles.header}>
-                <img src={logo} className={styles.logo} alt="logo" />
+                <img src={images.logo} className={styles.logo} alt="logo" />
                 <Counter />
                 <p>
                     Edit
