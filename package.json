@@ -15,6 +15,8 @@
   },
   "scripts": {
     "docsify": "docsify serve docs --port 1234",
+    "stylelint": "stylelint \"src/**/*.{js,jsx,htm,html,css,sss,less,scss,sass}\" --fix",
+    "clean": "yarn stylelint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "yarn build && cp -R docs build && netlify deploy --prod --dir=build",
@@ -35,5 +37,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "stylelint": "^13.6.1",
+    "stylelint-config-airbnb": "^0.0.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   }
 }
