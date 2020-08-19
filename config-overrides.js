@@ -8,6 +8,8 @@ module.exports = {
 
         const isProduction = env === 'production';
 
+        const assetUrl = process.env.ASSET_URL;
+
         newConfig.devtool = isProduction ? 'cheap-module-source-map' : 'source-map';
         newConfig.optimization.runtimeChunk = false;
         newConfig.optimization.splitChunks = false;
@@ -29,7 +31,10 @@ module.exports = {
         newConfig.plugins[4].options.chunkFilename = 'static/css/chunks/[name].[contenthash:8].css';
 
         newConfig.module.rules[2].oneOf[0].options.name = 'static/media/[name].[hash:8].[ext]';
+        newConfig.module.rules[2].oneOf[0].options.publicPath = assetUrl;
+
         newConfig.module.rules[2].oneOf[7].options.name = 'static/media/[name].[hash:8].[ext]';
+        newConfig.module.rules[2].oneOf[7].options.publicPath = assetUrl;
 
         newConfig.optimization.minimizer[0].options.extractComments = false;
         newConfig.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
