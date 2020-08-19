@@ -5,14 +5,15 @@ import { Provider } from 'react-redux';
 import store from '@/app/store';
 import * as serviceWorker from '@/serviceWorker';
 import '@/locales/i18n';
+import CNprogress from '@/common/components/CNprogress/CNprogress';
 
-import '@/index.scss';
+import '@/styles/index.scss';
 
 const App = lazy(() => import('@/App'));
 
 ReactDOM.render(
     <React.StrictMode>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<CNprogress />}>
             <Provider store={store}>
                 <App name="Trần Sách Hải" />
             </Provider>
