@@ -1,13 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import Counter from './features/counter/Counter';
-import './App.scss';
+import logo from '@/logo.svg';
+import Counter from '@/features/counter/Counter';
+import styles from '@/App.scss';
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+        <div className={styles.app}>
+            <header className={styles.header}>
+                <img src={logo} className={styles.logo} alt="logo" />
                 <Counter />
                 <p>
                     Edit
@@ -19,7 +19,7 @@ function App() {
                 <span>
                     <span>Learn </span>
                     <a
-                        className="App-link"
+                        className={styles.link}
                         href="https://reactjs.org/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -28,7 +28,7 @@ function App() {
                     </a>
                     <span>, </span>
                     <a
-                        className="App-link"
+                        className={styles.link}
                         href="https://redux.js.org/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -37,7 +37,7 @@ function App() {
                     </a>
                     <span>, </span>
                     <a
-                        className="App-link"
+                        className={styles.link}
                         href="https://redux-toolkit.js.org/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -47,7 +47,7 @@ function App() {
                     ,
                     <span> and </span>
                     <a
-                        className="App-link"
+                        className={styles.link}
                         href="https://react-redux.js.org/"
                         target="_blank"
                         rel="noopener noreferrer"
