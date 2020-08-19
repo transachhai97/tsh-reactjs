@@ -8,13 +8,14 @@
     "stylelint": "stylelint \"src/**/*.{js,jsx,htm,html,css,sss,less,scss,sass}\" --fix",
     "eslint": "eslint \"src/**/*.{js,jsx}\" --fix",
     "clean": "yarn stylelint && yarn eslint",
-    "start": "yarn clean && react-app-rewired start",
+    "start": "yarn clean && cross-env BROWSER=none react-app-rewired start",
     "build": "yarn clean && env-cmd -f .env react-app-rewired build",
     "deploy": "yarn build && cp -R docs build && netlify deploy --prod --dir=build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "env-cmd": "^10.1.0",
     "eslint-config-airbnb": "^18.2.0",
     "react-app-rewired": "^2.1.6",
