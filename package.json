@@ -6,15 +6,13 @@
   "scripts": {
     "docsify": "docsify serve docs --port 1234",
     "stylelint": "stylelint \"src/**/*.{js,jsx,htm,html,css,sss,less,scss,sass}\" --fix",
-    "clean": "yarn stylelint",
+    "eslint": "eslint \"src/**/*.{js,jsx}\" --fix",
+    "clean": "yarn stylelint && yarn eslint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "yarn build && cp -R docs build && netlify deploy --prod --dir=build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -29,6 +27,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-airbnb": "^18.2.0",
     "stylelint": "^13.6.1",
     "stylelint-config-airbnb": "^0.0.0",
     "stylelint-config-rational-order": "^0.1.2",
