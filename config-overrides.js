@@ -8,7 +8,7 @@ module.exports = {
 
         const isProduction = env === 'production';
 
-        const assetUrl = process.env.ASSET_URL;
+        const assetUrl = isProduction ? process.env.ASSET_URL : '';
 
         newConfig.devtool = isProduction ? 'cheap-module-source-map' : 'source-map';
         newConfig.optimization.runtimeChunk = false;
