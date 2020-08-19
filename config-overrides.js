@@ -42,6 +42,14 @@ module.exports = {
         newConfig.module.rules[2].oneOf[5].use[1].options = {
             modules: {
                 localIdentName: '[name]__[local]--[hash:base64:5]',
+                // eslint-disable-next-line no-unused-vars,consistent-return
+                getLocalIdent: (loaderContext, localIdentName, localName, options) => {
+                    // eslint-disable-next-line no-shadow
+                    const path = loaderContext.resourcePath;
+                    if (path.includes('src/styles/index.scss') || path.includes('node_modules')) {
+                        return localName;
+                    }
+                },
             },
         };
 
