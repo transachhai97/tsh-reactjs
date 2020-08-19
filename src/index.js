@@ -11,7 +11,7 @@ ReactDOM.render(
     <React.StrictMode>
         <Suspense fallback={<div>Loading...</div>}>
             <Provider store={store}>
-                <App />
+                <App name="Trần Sách Hải" />
             </Provider>
         </Suspense>
     </React.StrictMode>,

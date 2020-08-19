@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import images from '@/helpers/images';
 import Counter from '@/features/counter/Counter';
 import styles from '@/App.scss';
 
-function App() {
+function App(props) {
+    const { name } = props;
+
     return (
         <div className={styles.app}>
             <header className={styles.header}>
@@ -55,9 +59,18 @@ function App() {
                         React Redux
                     </a>
                 </span>
+                <h1>{name}</h1>
             </header>
         </div>
     );
 }
+
+App.propTypes = {
+    name: PropTypes.string,
+};
+
+App.defaultProps = {
+    name: 'Hai',
+};
 
 export default App;
