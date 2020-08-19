@@ -9,12 +9,13 @@
     "eslint": "eslint \"src/**/*.{js,jsx}\" --fix",
     "clean": "yarn stylelint && yarn eslint",
     "start": "yarn clean && react-app-rewired start",
-    "build": "yarn clean && react-app-rewired build",
+    "build": "yarn clean && env-cmd -f .env react-app-rewired build",
     "deploy": "yarn build && cp -R docs build && netlify deploy --prod --dir=build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint-config-airbnb": "^18.2.0",
     "react-app-rewired": "^2.1.6",
     "redux-logger": "^3.0.6",
