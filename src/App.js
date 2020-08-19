@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import images from '@/helpers/images';
 import Counter from '@/features/counter/Counter';
 import styles from '@/App.scss';
 
 function App(props) {
+    const { t } = useTranslation();
+
     const { name } = props;
 
     return (
@@ -59,7 +62,7 @@ function App(props) {
                         React Redux
                     </a>
                 </span>
-                <h1>{name}</h1>
+                <h1>{`${t('hello')} ${name}`}</h1>
             </header>
         </div>
     );

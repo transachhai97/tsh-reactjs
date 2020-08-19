@@ -1,9 +1,12 @@
 import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import '@/index.scss';
 import { Provider } from 'react-redux';
+
 import store from '@/app/store';
 import * as serviceWorker from '@/serviceWorker';
+import '@/locales/i18n';
+
+import '@/index.scss';
 
 const App = lazy(() => import('@/App'));
 
