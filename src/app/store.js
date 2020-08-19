@@ -1,8 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '@/features/counter/counterSlice';
+import { reduxBatch } from '@manaflair/redux-batch';
 
-export default configureStore({
-    reducer: {
-        counter: counterReducer,
-    },
+import reducer from '@/app/reducer';
+import isDev from '@/app/env';
+import preloadedState from '@/app/preloadedState';
+import middleware from '@/app/middleware';
+
+const store = configureStore({
+    reducer,
+    middleware,
+    devTools: isDev,
+    preloadedState,
+    enhancers: [reduxBatch],
 });
+
+export default store;
