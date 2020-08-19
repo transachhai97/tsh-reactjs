@@ -13,6 +13,7 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
+    "docsify": "docsify serve docs --port 1234",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
