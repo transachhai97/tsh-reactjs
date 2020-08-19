@@ -16,6 +16,7 @@
     "docsify": "docsify serve docs --port 1234",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "yarn build && cp -R docs build && netlify deploy --prod --dir=build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
