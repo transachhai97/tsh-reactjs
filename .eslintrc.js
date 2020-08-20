@@ -29,5 +29,6 @@ module.exports = {
         'react/jsx-indent-props': ['error', 4],
         'linebreak-style': ['error', 'unix'],
         'react/jsx-props-no-spreading': 0,
+        'no-param-reassign': [2, { 'props': false }]
     },
 };

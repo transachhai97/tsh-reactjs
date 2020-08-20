@@ -11,19 +11,13 @@ export const counterSlice = createSlice({
             // doesn't actually mutate the state because it uses the Immer library,
             // which detects changes to a "draft state" and produces a brand new
             // immutable state based off those changes
-            const newState = { ...state };
-            newState.value += 1;
-            return newState;
+            state.value += 1;
         },
         decrement: (state) => {
-            const newState = { ...state };
-            newState.value -= 1;
-            return newState;
+            state.value -= 1;
         },
         incrementByAmount: (state, action) => {
-            const newState = { ...state };
-            newState.value += action.payload;
-            return newState;
+            state.value += action.payload;
         },
     },
 });
