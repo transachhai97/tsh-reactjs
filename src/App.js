@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import images from '@/helpers/images';
 import Counter from '@/features/counter/Counter';
@@ -77,6 +78,7 @@ function App(props) {
                     </a>
                 </span>
                 <h1>{`${t('hello')} ${name}`}</h1>
+                <button type="button" onClick={() => toast('Wow so easy !')}>Notify !</button>
             </header>
         </div>
     );

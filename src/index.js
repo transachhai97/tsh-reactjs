@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from '@/app/store';
 import * as serviceWorker from '@/serviceWorker';
 import '@/locales/i18n';
+import Toastify from '@/common/components/Toastify/Toastify';
 import CNprogress from '@/common/components/CNprogress/CNprogress';
 import ChangeLanguage from '@/common/ChangeLanguage/ChangeLanguage';
 
@@ -17,6 +18,7 @@ ReactDOM.render(
         <Suspense fallback={<CNprogress />}>
             <Provider store={store}>
                 <>
+                    <Toastify />
                     <ChangeLanguage />
                     <App name="Trần Sách Hải" />
                 </>
