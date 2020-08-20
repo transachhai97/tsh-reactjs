@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import images from '@/helpers/images';
 import Counter from '@/features/counter/Counter';
 import styles from '@/App.scss';
+
+const Home = lazy(() => import('@/pages/Home'));
+const About = lazy(() => import('@/pages/About'));
 
 function App(props) {
     const { t } = useTranslation();
@@ -13,6 +17,16 @@ function App(props) {
 
     return (
         <div className={styles.app}>
+            <Router>
+                <Switch>
+                    <Route path="/about">
+                        <About />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
+            </Router>
             <header className={styles.header}>
                 <img src={images.logo} className={styles.logo} alt="logo" />
                 <Counter />
