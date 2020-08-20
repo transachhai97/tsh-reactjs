@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import {
     decrement,
     increment,
@@ -10,9 +12,8 @@ import {
 
 import styles from '@/features/counter/css/Counter.scss';
 
-function Counter() {
+function Counter(props) {
     const count = useSelector(selectCount);
-    const dispatch = useDispatch();
     const [incrementAmount, setIncrementAmount] = useState('2');
 
     return (
@@ -22,7 +23,7 @@ function Counter() {
                     type="button"
                     className={styles.button}
                     aria-label="Increment value"
-                    onClick={() => dispatch(increment())}
+                    onClick={() => props.increment()}
                 >
                     +
                 </button>
@@ -31,7 +32,7 @@ function Counter() {
                     type="button"
                     className={styles.button}
                     aria-label="Decrement value"
-                    onClick={() => dispatch(decrement())}
+                    onClick={() => props.decrement()}
                 >
                     -
                 </button>
@@ -46,14 +47,14 @@ function Counter() {
                 <button
                     type="button"
                     className={styles.button}
-                    onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}
+                    onClick={() => props.incrementByAmount(Number(incrementAmount) || 0)}
                 >
                     Add Amount
                 </button>
                 <button
                     type="button"
                     className={styles.asyncButton}
-                    onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
+                    onClick={() => props.incrementAsync(Number(incrementAmount) || 0)}
                 >
                     Add Async
                 </button>
@@ -62,4 +63,25 @@ function Counter() {
     );
 }
 
-export default Counter;
+const mapDispatchToProps = {
+    increment,
+    decrement,
+    incrementByAmount,
+    incrementAsync,
+};
+
+Counter.propTypes = {
+    increment: PropTypes.func,
+    decrement: PropTypes.func,
+    incrementByAmount: PropTypes.func,
+    incrementAsync: PropTypes.func,
+};
+
+Counter.defaultProps = {
+    increment: () => {},
+    decrement: () => {},
+    incrementByAmount: () => {},
+    incrementAsync: () => {},
+};
+
+export default connect(null, mapDispatchToProps)(Counter);
