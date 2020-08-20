@@ -6,6 +6,7 @@ import store from '@/app/store';
 import * as serviceWorker from '@/serviceWorker';
 import '@/locales/i18n';
 import CNprogress from '@/common/components/CNprogress/CNprogress';
+import ChangeLanguage from '@/common/ChangeLanguage/ChangeLanguage';
 
 import '@/styles/index.scss';
 
@@ -15,7 +16,10 @@ ReactDOM.render(
     <React.StrictMode>
         <Suspense fallback={<CNprogress />}>
             <Provider store={store}>
-                <App name="Trần Sách Hải" />
+                <>
+                    <ChangeLanguage />
+                    <App name="Trần Sách Hải" />
+                </>
             </Provider>
         </Suspense>
     </React.StrictMode>,
