@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {
@@ -13,7 +13,7 @@ import {
 import styles from '@/features/counter/css/Counter.scss';
 
 function Counter(props) {
-    const count = useSelector(selectCount);
+    const { count } = props;
     const [incrementAmount, setIncrementAmount] = useState('2');
 
     return (
@@ -63,6 +63,10 @@ function Counter(props) {
     );
 }
 
+const mapStateToProps = (state) => ({
+    count: selectCount(state),
+});
+
 const mapDispatchToProps = {
     increment,
     decrement,
@@ -71,6 +75,8 @@ const mapDispatchToProps = {
 };
 
 Counter.propTypes = {
+    count: PropTypes.number,
+
     increment: PropTypes.func,
     decrement: PropTypes.func,
     incrementByAmount: PropTypes.func,
@@ -78,10 +84,12 @@ Counter.propTypes = {
 };
 
 Counter.defaultProps = {
+    count: 0,
+
     increment: () => {},
     decrement: () => {},
     incrementByAmount: () => {},
     incrementAsync: () => {},
 };
 
-export default connect(null, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
