@@ -1,9 +1,21 @@
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const { override, addPostcssPlugins } = require('customize-cra');
+
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
+
+const purgecss = require('@fullhuman/postcss-purgecss')({
+    content: [
+        './public/**/*.html',
+        './src/**/*.js',
+    ],
+});
 
 module.exports = {
-    webpack(config, env) {
+    webpack: override((config, env) => {
         const newConfig = config;
 
         const isProduction = env === 'production';
@@ -57,4 +69,9 @@ module.exports = {
 
         return newConfig;
     },
+    addPostcssPlugins([
+        tailwindcss,
+        autoprefixer,
+        ...(process.env.NODE_ENV === 'production' ? [purgecss] : []),
+    ])),
 };

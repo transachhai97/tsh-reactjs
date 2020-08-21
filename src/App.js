@@ -78,7 +78,7 @@ function App(props) {
                     </a>
                 </span>
                 <h1>{`${t('hello')} ${name}`}</h1>
-                <button type="button" onClick={() => toast('Wow so easy !')}>Notify !</button>
+                <button type="button" className={styles.btnNotify} onClick={() => toast('Wow so easy !')}>Notify !</button>
             </header>
         </div>
     );

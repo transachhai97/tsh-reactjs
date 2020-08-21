@@ -5,7 +5,7 @@ function About() {
     return (
         <div className="About">
             <h1>About page</h1>
-            <Link to="/">Go to Home page</Link>
+            <Link to="/" className="underline">Go to Home page</Link>
         </div>
     );
 }

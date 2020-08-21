@@ -7,7 +7,7 @@ import * as serviceWorker from '@/serviceWorker';
 import '@/locales/i18n';
 import Toastify from '@/common/components/Toastify/Toastify';
 import CNprogress from '@/common/components/CNprogress/CNprogress';
-import ChangeLanguage from '@/common/ChangeLanguage/ChangeLanguage';
+import ChangeLanguage from '@/common/components/ChangeLanguage/ChangeLanguage';
 
 import '@/styles/index.scss';
 
