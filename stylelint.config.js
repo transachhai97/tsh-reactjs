@@ -17,6 +17,8 @@ module.exports = {
         'length-zero-no-unit': true,
         'string-quotes': 'single',
         'color-hex-case': 'lower',
+        'block-opening-brace-newline-after': ['always'],
+        'block-closing-brace-newline-before': ['always'],
         'rule-empty-line-before': [
             'always',
             {
