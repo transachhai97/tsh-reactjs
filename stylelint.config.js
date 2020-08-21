@@ -16,6 +16,7 @@ module.exports = {
         'number-leading-zero': 'always',
         'length-zero-no-unit': true,
         'string-quotes': 'single',
+        'color-hex-case': 'lower',
         'rule-empty-line-before': [
             'always',
             {
