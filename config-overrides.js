@@ -53,7 +53,7 @@ module.exports = {
 
         newConfig.module.rules[2].oneOf[5].use[1].options = {
             modules: {
-                localIdentName: '[name]__[local]--[hash:base64:5]',
+                localIdentName: '[name]__[local]--[hash:base64:5][emoji]',
                 // eslint-disable-next-line no-unused-vars,consistent-return
                 getLocalIdent: (loaderContext, localIdentName, localName, options) => {
                     // eslint-disable-next-line no-shadow
