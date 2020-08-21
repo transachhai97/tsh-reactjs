@@ -14,6 +14,7 @@ module.exports = {
     rules: {
         indentation: 4,
         'number-leading-zero': 'always',
+        'length-zero-no-unit': true,
         'string-quotes': 'single',
         'rule-empty-line-before': [
             'always',
