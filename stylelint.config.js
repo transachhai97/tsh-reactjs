@@ -27,6 +27,8 @@ module.exports = {
                 ],
             },
         ],
+        'block-closing-brace-empty-line-before': 'never',
+        'max-empty-lines': 1,
         'order/properties-order': [],
         'plugin/rational-order': [
             true,
