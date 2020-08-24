@@ -70,7 +70,7 @@ module.exports = {
 
         newConfig.module.rules[2].oneOf[5].use[1].options = {
             modules: {
-                localIdentName: isProduction ? '[name]__[local]--[hash:base64:5][emoji]' : '[path][name]__[local]',
+                localIdentName: isProduction ? '[name]__[local]--[hash:base64:5]' : '[path][name]__[local]',
                 // eslint-disable-next-line no-unused-vars,consistent-return
                 getLocalIdent: (loaderContext, localIdentName, localName, options) => {
                     // eslint-disable-next-line no-shadow
