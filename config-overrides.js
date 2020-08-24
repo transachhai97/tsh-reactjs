@@ -3,6 +3,8 @@ const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { override, addPostcssPlugins } = require('customize-cra');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
@@ -35,6 +37,21 @@ module.exports = {
                 files: ['src/**/*.{js,jsx,htm,html,css,sss,less,scss,sass}'],
             }),
         );
+
+        if (isProduction) {
+            newConfig.plugins.push(
+                new CopyWebpackPlugin(
+                    {
+                        patterns: [
+                            {
+                                from: 'docs',
+                                to: 'docs',
+                            },
+                        ],
+                    },
+                ),
+            );
+        }
 
         newConfig.output.filename = isProduction ? 'static/js/[name].[contenthash:8].js' : 'static/js/[name].[hash].js';
         newConfig.output.chunkFilename = isProduction ? 'static/js/chunks/[name].[contenthash:8].js' : 'static/js/chunks/[name].[hash].js';

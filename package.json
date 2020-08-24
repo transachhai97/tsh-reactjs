@@ -10,11 +10,12 @@
     "clean": "yarn stylelint && yarn eslint",
     "start": "yarn clean && cross-env BROWSER=none react-app-rewired start",
     "build": "yarn clean && env-cmd -f .env react-app-rewired build",
-    "deploy": "yarn build && cp -R docs build && netlify deploy --prod --dir=build",
+    "deploy": "yarn build && netlify deploy --prod --dir=build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "customize-cra": "^1.0.0",
     "env-cmd": "^10.1.0",
