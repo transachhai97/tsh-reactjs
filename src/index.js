@@ -14,6 +14,12 @@ import ChangeLanguage from '@/common/components/ChangeLanguage/ChangeLanguage';
 
 import '@/styles/index.scss';
 
+if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line global-require
+    const whyDidYouRender = require('@welldone-software/why-did-you-render');
+    whyDidYouRender(React);
+}
+
 const App = lazy(() => import('@/App'));
 
 ReactDOM.render(
