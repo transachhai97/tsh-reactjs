@@ -1,93 +1,47 @@
-import React, { lazy } from 'react';
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import React from 'react';
 
-import Counter from '@/features/counter/Counter';
-import styles from '@/App.scss';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import PUBLIC_ROUTES, { PRIVATE_ROUTES } from '@/routes';
 
-const Home = lazy(() => import('@/pages/Home'));
-const About = lazy(() => import('@/pages/About'));
+class App extends React.PureComponent {
+    _renderPrivateRoutes() {
+        let xhtml = null;
+        xhtml = PRIVATE_ROUTES.map((route) => (
+            <Route
+                key={route.path}
+                path={route.path}
+                component={route.component}
+                exact={route.exact}
+                name={route.name}
+            />
+        ));
+        return xhtml;
+    }
 
-function App(props) {
-    const { t } = useTranslation();
+    _renderPublicRoutes() {
+        let xhtml = null;
+        xhtml = PUBLIC_ROUTES.map((route) => (
+            <Route
+                key={route.path}
+                path={route.path}
+                component={route.component}
+                exact={route.exact}
+                name={route.name}
+            />
+        ));
+        return xhtml;
+    }
 
-    const { name } = props;
-
-    return (
-        <div className={styles.app}>
-            <Router>
+    render() {
+        return (
+            <BrowserRouter>
                 <Switch>
-                    <Route path="/about">
-                        <About />
-                    </Route>
-                    <Route path="/">
-                        <Home />
-                    </Route>
+                    {this._renderPrivateRoutes()}
+                    {this._renderPublicRoutes()}
                 </Switch>
-            </Router>
-            <header className={styles.header}>
-                <Counter />
-                <p>
-                    Edit
-                    {' '}
-                    <code>src/App.jsx</code>
-                    {' '}
-                    and save to reload.
-                </p>
-                <span>
-                    <span>Learn </span>
-                    <a
-                        className={styles.link}
-                        href="https://reactjs.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        React
-                    </a>
-                    <span>, </span>
-                    <a
-                        className={styles.link}
-                        href="https://redux.js.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Redux
-                    </a>
-                    <span>, </span>
-                    <a
-                        className={styles.link}
-                        href="https://redux-toolkit.js.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Redux Toolkit
-                    </a>
-                    ,
-                    <span> and </span>
-                    <a
-                        className={styles.link}
-                        href="https://react-redux.js.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        React Redux
-                    </a>
-                </span>
-                <h1>{`${t('hello')} ${name}`}</h1>
-                <button type="button" className={styles.btnNotify} onClick={() => toast('Wow so easy !')}>Notify !</button>
-            </header>
-        </div>
-    );
+            </BrowserRouter>
+        );
+    }
 }
-
-App.propTypes = {
-    name: PropTypes.string,
-};
-
-App.defaultProps = {
-    name: 'Hai',
-};
 
 export default App;
