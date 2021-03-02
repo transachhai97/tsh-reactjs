@@ -12,7 +12,7 @@ function DefaultLayout({ children }) {
     const [spinner, setSpinner] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setSpinner(false), 1000);
+        setTimeout(() => setSpinner(false), 2000);
     }, []);
 
     if (!onlineStatus.online) {

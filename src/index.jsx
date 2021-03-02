@@ -22,13 +22,13 @@ const App = lazy(() => import('@/App'));
 
 ReactDOM.render(
     <React.StrictMode>
-        <Suspense fallback={<CNprogress />}>
-            <Provider store={store}>
-                <DefaultLayout>
+        <Provider store={store}>
+            <DefaultLayout>
+                <Suspense fallback={<CNprogress />}>
                     <App name="Trần Sách Hải" />
-                </DefaultLayout>
-            </Provider>
-        </Suspense>
+                </Suspense>
+            </DefaultLayout>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root'),
 );

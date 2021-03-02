@@ -13,13 +13,22 @@ export default function useOnlineStatus() {
         }
     }
 
+    function resize() {
+        const width = window.innerWidth;
+        document.getElementsByTagName('html')[0].style.fontSize = `${width / 128}px`;
+    }
+
     useEffect(() => {
         window.addEventListener('online', handler);
         window.addEventListener('offline', handler);
 
+        resize();
+        window.addEventListener('resize', resize);
+
         return () => {
             window.removeEventListener('online', handler);
             window.removeEventListener('offline', handler);
+            window.removeEventListener('resize', resize);
         };
     });
 
