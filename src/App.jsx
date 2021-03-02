@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {
+    BrowserRouter, Switch, Route, Redirect,
+} from 'react-router-dom';
 import PUBLIC_ROUTES, { PRIVATE_ROUTES } from '@/routes';
 
 class App extends React.PureComponent {
@@ -38,6 +40,7 @@ class App extends React.PureComponent {
                 <Switch>
                     {this._renderPrivateRoutes()}
                     {this._renderPublicRoutes()}
+                    <Redirect to="/" />
                 </Switch>
             </BrowserRouter>
         );
