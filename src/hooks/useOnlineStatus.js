@@ -15,7 +15,15 @@ export default function useOnlineStatus() {
 
     function resize() {
         const width = window.innerWidth;
-        document.getElementsByTagName('html')[0].style.fontSize = `${width / 128}px`;
+        const height = window.innerHeight;
+
+        let baseSize = width;
+        if (width > height * (16 / 9)) {
+            baseSize = height * (16 / 9);
+        }
+
+        // eslint-disable-next-line no-mixed-operators
+        document.getElementsByTagName('html')[0].style.fontSize = `${baseSize / 128 * 10}%`;
     }
 
     useEffect(() => {
