@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import images from '@/helpers/images';
 import Counter from '@/features/counter/Counter';
 import styles from '@/App.scss';
 
@@ -29,7 +28,6 @@ function App(props) {
                 </Switch>
             </Router>
             <header className={styles.header}>
-                <img src={images.logo} className={styles.logo} alt="logo" />
                 <Counter />
                 <p>
                     Edit

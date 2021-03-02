@@ -21,6 +21,4 @@ function ChangeLanguage() {
     );
 }
 
-ChangeLanguage.whyDidYouRender = true;
-
 export default ChangeLanguage;

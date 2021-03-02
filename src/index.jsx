@@ -7,11 +7,10 @@ import { Provider } from 'react-redux';
 
 import store from '@/app/store';
 import '@/locales/i18n';
-import Toastify from '@/common/components/Toastify/Toastify';
 import CNprogress from '@/common/components/CNprogress/CNprogress';
-import ChangeLanguage from '@/common/components/ChangeLanguage/ChangeLanguage';
 
 import '@/styles/index.scss';
+import DefaultLayout from '@/layouts/DefaultLayout';
 
 if (process.env.NODE_ENV === 'development') {
     // eslint-disable-next-line global-require,import/no-extraneous-dependencies
@@ -25,11 +24,9 @@ ReactDOM.render(
     <React.StrictMode>
         <Suspense fallback={<CNprogress />}>
             <Provider store={store}>
-                <>
-                    <Toastify />
-                    <ChangeLanguage />
+                <DefaultLayout>
                     <App name="Trần Sách Hải" />
-                </>
+                </DefaultLayout>
             </Provider>
         </Suspense>
     </React.StrictMode>,

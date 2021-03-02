@@ -12,7 +12,7 @@ const autoprefixer = require('autoprefixer');
 const purgecss = require('@fullhuman/postcss-purgecss')({
     content: [
         './public/**/*.html',
-        './src/**/*.js',
+        './src/**/*.jsx',
     ],
 });
 
