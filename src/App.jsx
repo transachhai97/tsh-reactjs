@@ -34,7 +34,7 @@ function App(props) {
                 <p>
                     Edit
                     {' '}
-                    <code>src/App.js</code>
+                    <code>src/App.jsx</code>
                     {' '}
                     and save to reload.
                 </p>
