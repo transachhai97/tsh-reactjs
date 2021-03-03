@@ -66,7 +66,7 @@ module.exports = {
         newConfig.module.rules[2].oneOf[7].options.publicPath = assetUrl;
 
         newConfig.optimization.minimizer[0].options.extractComments = false;
-        newConfig.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
+        // newConfig.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
 
         newConfig.module.rules[2].oneOf[5].use[1].options = {
             modules: {

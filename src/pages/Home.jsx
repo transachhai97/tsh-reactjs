@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import VideoPlayer from '@/components/VideoPlayer';
 
 function Home() {
     return (
-        <div className="Home">
-            <h1>Home page</h1>
-            <Link to="/about" className="underline">Go to About page</Link>
-        </div>
+        <VideoPlayer src="https://d2zihajmogu5jn.cloudfront.net/big-buck-bunny/master.m3u8" />
     );
 }
 

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Offline from '@/common/components/Offline/Offline';
 import LoadingScreen from '@/common/components/Loading/Loading';
 import Toastify from '@/common/components/Toastify/Toastify';
-import ChangeLanguage from '@/common/components/ChangeLanguage/ChangeLanguage';
 
 function DefaultLayout({ children }) {
     const onlineStatus = useOnlineStatus();
@@ -23,7 +22,6 @@ function DefaultLayout({ children }) {
         <>
             {spinner && <LoadingScreen />}
             <Toastify />
-            <ChangeLanguage />
             {children}
         </>
     );
