@@ -1,16 +1,7 @@
-body {
-    margin: 0;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
+* {
+    font-family: 'Roboto', sans-serif;
 }
 
 .avg-root {
@@ -24,6 +15,8 @@ code {
     height: 45rem;
     margin: auto;
     overflow: hidden;
+
+    color: #ffffff;
 
     background-color: #000000;
     background-repeat: no-repeat;
